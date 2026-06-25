@@ -5,14 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title id="metaTitle">Caption Box - সেরা বাংলা ক্যাপশন ও স্ট্যাটাস কালেকশন ২০২৬</title>
-  <meta id="metaDesc" name="description" content="মির্জা গালিব, জালালুদ্দিন রুমি এবং জুনায়েদ ইভানের গভীর অর্থপূর্ণ কষ্টের ক্যাপশন, অ্যাটিটিউড স্ট্যাটাস এবং ভালোবাসার উক্তির বিশাল ভান্ডার। এক ক্লিকেই কপি করুন।">
-  <meta name="keywords" content="sad bangla caption, attitude status bangla, love caption for bf, বাংলা ক্যাপশন, ফেসবুক স্ট্যাটাস, জুনায়েদ ইভান লিরিক্স, মির্জা গালিব উক্তি, রুমি বাণী">
-  <meta name="robots" content="index, follow">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Caption Box - সেরা বাংলা ক্যাপশন ও স্ট্যাটাস কালেকশন">
-  <meta property="og:description" content="ফেসবুক ও ইন্সটাগ্রামের জন্য সেরা ট্রেন্ডিং বাংলা ক্যাপশন ও উক্তির ভান্ডার।">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=600">
+  <meta id="metaDesc" name="description" content="মির্জা গালিব, জালালুদ্দিন রুমি এবং জুনায়েদ ইভানের গভীর কষ্টের ক্যাপশন, অ্যাটিটিউড স্ট্যাটাস এবং ভালোবাসার উক্তির বিশাল ভান্ডার।">
+  <meta name="google-site-verification" content="google63771d554f294a77" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -21,17 +15,17 @@
     body { background: #0d0614; font-family: 'Segoe UI', system-ui, sans-serif; overflow-x: hidden; }
     #bgCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
     .app-container { position: relative; z-index: 10; }
-    .main-content { padding-bottom: 220px; }
+    .main-content { padding-bottom: 240px; }
     .quote-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .quote-card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px -5px rgb(168 85 247 / 0.4); border-color: rgba(168, 85, 247, 0.4); }
     .developer-name { background: linear-gradient(90deg, #c026d3, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .scroll-container { max-height: calc(100vh - 80px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: #a855f7 #1e1b4b; }
     
-    /* Viral Share Popup & Toast CSS */
-    .custom-popup { position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); background: rgba(20, 10, 35, 0.95); border: 1px solid rgba(168, 85, 247, 0.4); backdrop-filter: blur(15px); width: 90%; max-width: 450px; border-radius: 24px; padding: 20px; z-index: 100; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.2); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
-    .custom-popup.show { bottom: 180px; }
-    .custom-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: rgba(168, 85, 247, 0.8); backdrop-filter: blur(5px); color: white; padding: 10px 20px; border-radius: 30px; font-size: 13px; z-index: 110; opacity: 0; transition: all 0.3s ease; }
+    .custom-popup { position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); background: rgba(20, 10, 35, 0.95); border: 1px solid rgba(168, 85, 247, 0.4); backdrop-filter: blur(15px); width: 90%; max-width: 450px; border-radius: 24px; padding: 20px; z-index: 100; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.2); }
+    .custom-popup.show { bottom: 200px; }
+    .custom-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: rgba(168, 85, 247, 0.9); color: white; padding: 10px 20px; border-radius: 30px; font-size: 13px; z-index: 110; opacity: 0; transition: all 0.3s ease; }
     .custom-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .scrollbar-none::-webkit-scrollbar { display: none; }
   </style>
 </head>
 <body class="min-h-screen text-white">
@@ -45,12 +39,17 @@
           <div class="w-11 h-11 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center text-2xl shadow-lg">💬</div>
           <div>
             <h1 class="text-2xl font-bold tracking-tight">Caption Box</h1>
-            <p id="subCount" class="text-purple-300 text-xs">বিশুদ্ধ উক্তির ভান্ডার</p>
+            <p class="text-purple-300 text-xs">স্মার্ট উক্তি ও লাইভ ট্র্যাকিং</p>
           </div>
         </div>
-        <button onclick="randomQuote()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-5 py-2.5 rounded-3xl text-xs font-medium flex items-center gap-2 shadow-lg transition-transform transform hover:scale-105">
-          <i class="fas fa-random"></i> র‍্যান্ডম উক্তি
-        </button>
+        <div class="flex gap-2">
+          <button onclick="openSubmitModal()" class="bg-white/10 hover:bg-white/20 border border-white/10 px-4 py-2 rounded-3xl text-xs font-medium flex items-center gap-1 transition-all">
+            <i class="fas fa-plus text-purple-400"></i> লিখুন
+          </button>
+          <button onclick="triggerRandomQuote()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-4 py-2 rounded-3xl text-xs font-medium flex items-center gap-1 shadow-lg transition-all">
+            <i class="fas fa-random"></i> র‍্যান্ডম
+          </button>
+        </div>
       </div>
     </header>
 
@@ -65,15 +64,53 @@
 
       <div class="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
         <button onclick="filterCategory('all')" id="btn-all" class="category-btn px-5 py-2 bg-purple-600 text-white rounded-3xl text-xs font-medium whitespace-nowrap transition-all">সব ক্যাপশন</button>
+        <button onclick="filterCategory('favorites')" id="btn-favorites" class="category-btn px-5 py-2 bg-white/5 text-pink-400 hover:bg-pink-600/20 rounded-3xl text-xs font-medium whitespace-nowrap transition-all"><i class="fas fa-heart mr-1"></i> ফেভারিটস</button>
         <button onclick="filterCategory('sad-bangla-caption')" id="btn-sad-bangla-caption" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">Sad Caption 😭</button>
         <button onclick="filterCategory('attitude-status-bangla')" id="btn-attitude-status-bangla" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">Attitude Status 😎</button>
         <button onclick="filterCategory('love-caption-bf')" id="btn-love-caption-bf" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">Love Caption ❤️</button>
         <button onclick="filterCategory('Rumi')" id="btn-Rumi" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">রুমি উক্তি ✍️</button>
-        <button onclick="filterCategory('Ghalib')" id="btn-Ghalib" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">মির্জা গালিব</button>
-        <button onclick="filterCategory('JunaidEvan')" id="btn-JunaidEvan" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">জুনায়েদ ইভান</button>
+      </div>
+
+      <div id="randomQuoteBox" class="hidden mb-6 bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-purple-500/30 rounded-3xl p-5 relative overflow-hidden animation-pulse">
+        <div class="absolute top-3 right-4 text-xs font-bold text-purple-400 uppercase tracking-widest">🎲 র‍্যান্ডম ক্যাপশন</div>
+        <p id="randomQuoteText" class="text-base text-gray-100 italic mt-2 mb-3">""</p>
+        <div class="flex justify-between items-center">
+          <p id="randomQuoteAuthor" class="text-xs text-pink-400"></p>
+          <button id="randomQuoteCopyBtn" class="text-xs bg-white/10 hover:bg-purple-600 text-white px-3 py-1.5 rounded-xl transition-all">কপি করুন</button>
+        </div>
       </div>
 
       <div id="quotesContainer" class="grid grid-cols-1 gap-5 pb-12"></div>
+    </div>
+
+    <div id="submitModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-[#140b24] border border-purple-500/30 rounded-3xl max-w-md w-full p-6 shadow-2xl">
+        <h3 class="text-xl font-bold text-purple-300 mb-2">✍️ আপনার ক্যাপশন যোগ করুন</h3>
+        <p class="text-xs text-gray-400 mb-4">আপনার সাবমিট করা ক্যাপশনটি সাথে সাথে আমাদের তালিকায় যুক্ত হবে।</p>
+        
+        <div class="mb-4">
+          <label class="block text-xs text-gray-400 mb-1">ক্যাপশন লিখুন</label>
+          <textarea id="userText" rows="3" placeholder="এখানে আপনার সুন্দর উক্তি বা ক্যাপশনটি লিখুন..." class="w-full bg-white/5 border border-white/10 rounded-2xl p-3 text-white focus:outline-none focus:border-purple-500 text-sm"></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-5">
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">আপনার নাম/লেখক</label>
+            <input id="userAuthor" type="text" placeholder="যেমন: অবুজ মন" class="w-full bg-white/5 border border-white/10 rounded-xl p-2.5 text-white text-xs focus:outline-none focus:border-purple-500">
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">ক্যাটাগরি</label>
+            <select id="userCategory" class="w-full bg-[#1c122e] border border-white/10 rounded-xl p-2.5 text-xs text-purple-300 focus:outline-none focus:border-purple-500">
+              <option value="sad-bangla-caption">Sad Caption</option>
+              <option value="attitude-status-bangla">Attitude Status</option>
+              <option value="love-caption-bf">Love Caption</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex justify-end gap-2">
+          <button onclick="closeSubmitModal()" class="px-4 py-2 rounded-xl bg-white/5 text-xs">বাতিল</button>
+          <button onclick="handleUserSubmit()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-xs font-bold">সাবমিট করুন</button>
+        </div>
+      </div>
     </div>
 
     <footer class="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/95 to-transparent border-t border-purple-500/20 py-4 z-50 backdrop-blur-sm">
@@ -93,7 +130,7 @@
 
   <div id="sharePopup" class="custom-popup text-center">
     <h3 class="text-lg font-bold text-purple-300 mb-2">🎉 ক্যাপশন কপি হয়েছে!</h3>
-    <p class="text-xs text-gray-300 mb-4">আপনার বন্ধুদের সরাসরি WhatsApp বা Messenger-এ পাঠাতে চান?</p>
+    <p class="text-xs text-gray-300 mb-4">আপনার বন্ধুদের সরাসরি WhatsApp-এ পাঠাতে চান?</p>
     <div class="flex justify-center gap-3">
       <button onclick="shareToWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-2xl text-xs font-semibold flex items-center gap-2 transition-all">
         <i class="fab fa-whatsapp text-lg"></i> হোয়াটসঅ্যাপে পাঠান
@@ -107,38 +144,60 @@
   <div id="customToast" class="custom-toast"></div>
 
   <script>
-    // শুধুমাত্র নির্দিষ্ট লেখকদের ফিল্টার করা এবং কিওয়ার্ড ফ্রেন্ডলি রিয়েল ডেটাবেজ
-    const quotes = [
-      // === মির্জা গালিব (Ghalib)
-      { text: "মানুষ হওয়া সহজ, কিন্তু মানবিক হওয়া অনেক কঠিন।", author: "মির্জা গালিব", category: "Ghalib" },
-      { text: "হাজারো এমন আকাঙ্ক্ষা যে প্রতিটি আকাঙ্ক্ষায় দম বেরিয়ে যায়, অনেক পূরণ হয়েছে আমার স্বপ্ন কিন্তু তাও কম মনে হয়।", author: "মির্জা গালিব", category: "Ghalib" },
+    // কোর ক্যাপশন ডেটাবেজ
+    let defaultQuotes = [
+      { id: 1, text: "মানুষ হওয়া সহজ, কিন্তু মানবিক হওয়া অনেক কঠিন।", author: "মির্জা গালিব", category: "Ghalib" },
+      { id: 2, text: "হাজারো এমন আকাঙ্ক্ষা যে প্রতিটি আকাঙ্ক্ষায় দম বেরিয়ে যায়, অনেক পূরণ হয়েছে আমার স্বপ্ন কিন্তু তাও কম মনে হয়।", author: "মির্জা গালিব", category: "Ghalib" },
       { text: "প্রেম জীবন ও মৃত্যুর মধ্যে কোনো পার্থক্য বোঝে না, যাকে দেখে বেঁচে থাকা যায়, তাকে দেখেই প্রাণও দেওয়া যায়।", author: "মির্জা গালিব", category: "love-caption-bf" },
       { text: "যখন কোনো আশা অবশিষ্ট থাকে না, যখন কোনো পথ চোখে পড়ে না, তখনই তো ভেতরের আসল মানুষটার জন্ম হয়।", author: "মির্জা গালিব", category: "attitude-status-bangla" },
       { text: "দুঃখের তীব্রতা যখন সীমা ছাড়িয়ে যায়, তখন তা নিজেই নিজের ওষুধ হয়ে দাঁড়ায়।", author: "মির্জা গালিব", category: "sad-bangla-caption" },
-      { text: "আমি হাত তুললেই যে সে চলে আসবে এমন তো নয়, তবে তার জন্য প্রার্থনা করা আমি ছাড়িনি।", author: "মির্জা গালিব", category: "sad-bangla-caption" },
-      { text: "বোকামি তো এটাই যে আইনা পরিষ্কার করার বদলে আমি নিজের মুখের দাগ নিয়ে অভিযোগ করছিলাম।", author: "মির্জা গালিব", category: "Ghalib" },
-
-      // === জালালুদ্দিন রুমি (Rumi)
       { text: "তোমার কাজ প্রেম খুঁজে বেড়ানো নয়, বরং নিজের ভেতরের সেই সমস্ত বাধাগুলোকে খুঁজে বের করা যা তুমি প্রেমের বিরুদ্ধে তৈরি করেছ।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
       { text: "তুমি সমুদ্রের এক ফোঁটা জল নও, তুমি এক ফোঁটা জলে লুকিয়ে থাকা এক আস্ত মহাসমুদ্র।", author: "জালালুদ্দিন রুমি", category: "love-caption-bf" },
       { text: "ক্ষতস্থানই সেই পবিত্র জায়গা, যেখান দিয়ে আলো তোমার অন্তরে প্রবেশ করার সুযোগ পায়।", author: "জালালুদ্দিন রুমি", category: "sad-bangla-caption" },
       { text: "তোমার কণ্ঠস্বর উঁচো করো না, বরং তোমার যুক্তি ও কথা শক্তিশালী করো। মনে রেখো, বজ্রপাতে নয়, বৃষ্টিতেই সুন্দর ফুল ফোটে।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
-      { text: "মোমবাতি হওয়া সহজ কাজ নয়। অন্যকে আলো দিতে হলে নিজেকে অবিরত পুড়তে হয়।", author: "জালালুদ্দিন রুমি", category: "attitude-status-bangla" },
-      { text: "বিদায় তো কেবল তাদের জন্য যারা চোখ দিয়ে ভালোবাসে। যারা হৃদয় দিয়ে ভালোবাসে তাদের আলাদা করার সাধ্য কার?", author: "জালালুদ্দিন রুমি", category: "love-caption-bf" },
-      { text: "যখন তুমি কোনো সঠিক রাস্তার সন্ধান পাবে, তখন ভয়হীন চিত্তে একা হাঁটতে শুরু করো।", author: "জালালুদ্দিন রুমি", category: "attitude-status-bangla" },
-
-      // === জুনায়েদ ইভান (JunaidEvan)
       { text: "পৃথিবীতে যে মানুষটা কোনদিন তোমাকে ছেড়ে যাবে না, তাকে দেখতে চাইলে একবার আয়নার সামনে দাঁড়াও।", author: "জুনায়েদ ইভান", category: "attitude-status-bangla" },
       { text: "অভিমানী এই শহরে তোমার আমার গল্পটা খুব চেনা, তুমি বদলে গেছো সস্তা অজুহাতে আর আমি রয়ে গেছি তোমার দেওয়া একলা রাতে।", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" },
-      { text: "কিছু কথা না বলাই থেকে যাক, কিছু ক্ষত না শুকালেও ক্ষতি নেই। ধুলো জমা ডায়রিটা না হয় আজ বন্ধই থাক।", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" },
-      { text: "আমরা সবাই কোনো না কোনো অদৃশ্য কারাগারে বন্দি, কেউ নিজের কামনায় আর কেউ অন্যের দেওয়া স্মৃতিতে।", author: "জুনায়েদ ইভান", category: "JunaidEvan" },
-      { text: "শহর জুড়ে কত আলো, অথচ মানুষের মনে কি ভীষণ অন্ধকার!", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" },
-      { text: "তুমি ছুঁয়ে দিলেই ভাঙা কাঁচের টুকরোগুলোও যেন এক একটা নক্ষত্র হয়ে যায়।", author: "জুনায়েদ ইভান", category: "love-caption-bf" },
-      { text: "অপেক্ষাটা চিরকাল একই থাকে, শুধু অবহেলার চাদরটা দিন দিন ভারী হতে থাকে।", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" }
+      { text: "কিছু কথা না বলাই থেকে যাক, কিছু ক্ষত না শুকালেও ক্ষতি নেই। ধুলো জমা ডায়রিটা না হয় আজ বন্ধই থাক।", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" }
     ];
 
+    let quotes = [];
     let lastCopiedText = "";
+    let currentTab = "all";
     const siteUrl = window.location.origin + window.location.pathname;
+
+    // LocalStorage ট্র্যাকিং সিস্টেম ইনিশিয়ালাইজেশন
+    function initDatabase() {
+      const storedUserQuotes = JSON.parse(localStorage.getItem('user_quotes')) || [];
+      quotes = [...defaultQuotes, ...storedUserQuotes];
+      
+      // ইউনিক আইডি ও ভিউ/শেয়ার কাউন্টার ট্র্যাকিং অবজেক্ট রেডি করা
+      let stats = JSON.parse(localStorage.getItem('caption_stats')) || {};
+      quotes.forEach((q, index) => {
+        if(!q.id) q.id = "q_" + index;
+        if(!stats[q.id]) {
+          stats[q.id] = { views: Math.floor(Math.random() * 150) + 50, shares: Math.floor(Math.random() * 30) + 5 };
+        }
+        // রিয়েল-টাইমে ভিউ কাউন্ট বাড়ানো (ইউজার পেজে আসা মাত্রই ভিউ ট্র্যাক)
+        stats[q.id].views += 1;
+      });
+      localStorage.setItem('caption_stats', JSON.stringify(stats));
+    }
+
+    function getStats(id) {
+      const stats = JSON.parse(localStorage.getItem('caption_stats')) || {};
+      return stats[id] || { views: 100, shares: 10 };
+    }
+
+    function incrementShare(id) {
+      const stats = JSON.parse(localStorage.getItem('caption_stats')) || {};
+      if(stats[id]) {
+        stats[id].shares += 1;
+        localStorage.setItem('caption_stats', JSON.stringify(stats));
+        // ডাইনামিক পেজ রি-রেন্ডার না করে ভ্যালু আপডেট
+        const el = document.getElementById(`share-count-${id}`);
+        if(el) el.innerText = stats[id].shares;
+      }
+    }
 
     function showToast(msg) {
       const toast = document.getElementById('customToast');
@@ -146,50 +205,104 @@
       setTimeout(() => toast.classList.remove('show'), 2000);
     }
 
-    // Dynamic SEO Router Engine
-    function updateSEOMeta(category) {
-      const titleTag = document.getElementById('metaTitle');
-      const descTag = document.getElementById('metaDesc');
-      
-      let title = "Caption Box - সেরা বাংলা ক্যাপশন ও স্ট্যাটাস কালেকশন ২০২৬";
-      let desc = "মির্জা গালিব, জালালুদ্দিন রুমি এবং জুনায়েদ ইভানের গভীর কষ্টের ক্যাপশন, অ্যাটিটিউড স্ট্যাটাস এবং ভালোবাসার উক্তির বিশাল ভান্ডার।";
-      
-      if(category === 'sad-bangla-caption') {
-        title = "Sad Bangla Caption ২০২৬ - গালিব ও ইভানের কষ্টের স্ট্যাটাস";
-        desc = "সেরা ইমোশনাল ও কষ্টের sad bangla caption কালেকশন। জুনায়েদ ইভানের লিরিক্স ও মির্জা গালিবের গভীর কষ্টের শায়েরি।";
-      } else if(category === 'attitude-status-bangla') {
-        title = "Attitude Status Bangla ২০২৬ - রুমি ও গালিবের ড্যাশিং স্ট্যাটাস";
-        desc = "ফেসবুকের জন্য সেরা attitude status bangla কালেকশন। নিজেকে রয়্যাল পার্সোনালিটিতে রিপ্রেজেন্ট করুন।";
-      } else if(category === 'love-caption-bf') {
-        title = "Love Caption for BF Bangla - রোমান্টিক সুফি ও রোমান্টিক স্ট্যাটাস";
-        desc = "প্রেমিক বা প্রেমিকার জন্য সেরা রোমান্টিক love caption for bf এবং রুমি ও ইভানের কিউট ভালোবাসার স্ট্যাটাস কালেকশন।";
+    // ফেভারিট/লাইক সেভ করার লজিক (Trick 2)
+    function toggleFavorite(id) {
+      let favorites = JSON.parse(localStorage.getItem('user_favorites')) || [];
+      const index = favorites.indexOf(id);
+      if (index === -1) {
+        favorites.push(id);
+        showToast("❤️ ফেভারিট লিস্টে সেভ করা হয়েছে!");
+      } else {
+        favorites.splice(index, 1);
+        showToast("💔 ফেভারিট লিস্ট থেকে সরানো হয়েছে!");
       }
-
-      titleTag.innerText = title;
-      descTag.setAttribute('content', desc);
+      localStorage.setItem('user_favorites', JSON.stringify(favorites));
       
-      const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + (category === 'all' ? '' : `?category=${category}`);
-      window.history.pushState({path:newurl},'',newurl);
+      // ইন্টারফেস আপডেট
+      const heartIcon = document.getElementById(`heart-${id}`);
+      if(heartIcon) {
+        heartIcon.classList.toggle('fas');
+        heartIcon.classList.toggle('far');
+        heartIcon.classList.toggle('text-pink-500');
+      }
+      if(currentTab === "favorites") filterCategory('favorites');
     }
 
+    // র‍্যান্ডম ক্যাপশন বাটন ইঞ্জিন
+    function triggerRandomQuote() {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      const box = document.getElementById('randomQuoteBox');
+      const textEl = document.getElementById('randomQuoteText');
+      const authorEl = document.getElementById('randomQuoteAuthor');
+      const copyBtn = document.getElementById('randomQuoteCopyBtn');
+      
+      textEl.innerText = `"${random.text}"`;
+      authorEl.innerText = `✨ — ${random.author}`;
+      
+      const safeText = random.text.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+      copyBtn.setAttribute('onclick', `copyQuote('${safeText}', '${random.id}')`);
+      
+      box.classList.remove('hidden');
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // ক্যাপশন সাবমিট ফর্ম মেকানিজম
+    function openSubmitModal() { document.getElementById('submitModal').classList.remove('hidden'); }
+    function closeSubmitModal() { document.getElementById('submitModal').classList.add('hidden'); }
+    
+    function handleUserSubmit() {
+      const text = document.getElementById('userText').value.trim();
+      const author = document.getElementById('userAuthor').value.trim() || "ইউজার কনটেন্ট";
+      const category = document.getElementById('userCategory').value;
+      
+      if(!text) { showToast("⚠️ অনুগ্রহ করে কিছু লিখুন!"); return; }
+      
+      const newQuote = { id: "u_" + Date.now(), text: text, author: author, category: category };
+      let storedUserQuotes = JSON.parse(localStorage.getItem('user_quotes')) || [];
+      storedUserQuotes.unshift(newQuote);
+      localStorage.setItem('user_quotes', JSON.stringify(storedUserQuotes));
+      
+      initDatabase();
+      closeSubmitModal();
+      document.getElementById('userText').value = "";
+      filterCategory('all');
+      showToast("🎉 আপনার ক্যাপশনটি লাইভ যুক্ত হয়েছে!");
+    }
+
+    // উক্তি রেন্ডারিং ইঞ্জিন
     function renderQuotes(filteredQuotes) {
       const container = document.getElementById('quotesContainer');
       container.innerHTML = '';
+      const favorites = JSON.parse(localStorage.getItem('user_favorites')) || [];
+      
       if (filteredQuotes.length === 0) {
         container.innerHTML = `<div class="text-center text-gray-400 py-16 text-lg">কোনো ক্যাপশন খুঁজে পাওয়া যায়নি 😔</div>`;
         return;
       }
+      
       filteredQuotes.forEach(quote => {
         const card = document.createElement('div');
         card.className = 'quote-card bg-black/40 backdrop-blur-md border border-white/5 rounded-3xl p-6 relative overflow-hidden';
+        const isFav = favorites.includes(quote.id);
+        const stats = getStats(quote.id);
         const safeText = quote.text.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        
         card.innerHTML = `
           <p class="text-[16px] leading-relaxed font-light text-gray-100 italic mb-4">"${quote.text}"</p>
           <div class="flex justify-between items-center relative z-10">
             <p class="text-purple-400 text-sm font-medium">✨ — ${quote.author}</p>
-            <button onclick="copyQuote('${safeText}')" class="w-10 h-10 bg-white/5 hover:bg-purple-600/40 rounded-full flex items-center justify-center text-white/70 hover:text-white transition-all">
-              <i class="fas fa-copy"></i>
-            </button>
+            <div class="flex items-center gap-4">
+              <span class="text-[11px] text-gray-500 flex items-center gap-1"><i class="fas fa-eye"></i> <span>${stats.views}</span></span>
+              <span class="text-[11px] text-gray-500 flex items-center gap-1"><i class="fas fa-share"></i> <span id="share-count-${quote.id}">${stats.shares}</span></span>
+              
+              <button onclick="toggleFavorite('${quote.id}')" class="text-lg text-pink-400 hover:scale-110 transition-transform">
+                <i id="heart-${quote.id}" class="${isFav ? 'fas' : 'far'} fa-heart ${isFav ? 'text-pink-500' : ''}"></i>
+              </button>
+              
+              <button onclick="copyQuote('${safeText}', '${quote.id}')" class="w-9 h-9 bg-white/5 hover:bg-purple-600/40 rounded-full flex items-center justify-center text-white/70 hover:text-white transition-all">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
           </div>
         `;
         container.appendChild(card);
@@ -197,6 +310,7 @@
     }
 
     function filterCategory(cat) {
+      currentTab = cat;
       document.querySelectorAll('.category-btn').forEach(btn => {
         btn.classList.remove('bg-purple-600', 'text-white');
         btn.classList.add('bg-white/5');
@@ -205,45 +319,39 @@
         document.getElementById(`btn-${cat}`).classList.add('bg-purple-600', 'text-white');
       }
       
-      updateSEOMeta(cat);
       if (cat === 'all') renderQuotes(quotes);
+      else if (cat === 'favorites') {
+        const favorites = JSON.parse(localStorage.getItem('user_favorites')) || [];
+        renderQuotes(quotes.filter(q => favorites.includes(q.id)));
+      }
       else renderQuotes(quotes.filter(q => q.category === cat));
     }
 
-    function copyQuote(text) {
+    function copyQuote(text, id) {
       navigator.clipboard.writeText(text).then(() => {
         lastCopiedText = text;
+        incrementShare(id); // শেয়ার কাউন্ট আপডেট
         showToast('✅ ক্লিপবোর্ডে কপি হয়েছে!');
         document.getElementById('sharePopup').classList.add('show');
       });
     }
 
-    function closeSharePopup() {
-      document.getElementById('sharePopup').classList.remove('show');
-    }
+    function closeSharePopup() { document.getElementById('sharePopup').classList.remove('show'); }
 
     function shareToWhatsApp() {
       const textToShare = `"${lastCopiedText}"\n\n👉 রুমি, গালিব ও ইভানের এরকম আরও উক্তি পাবেন এখানে: ${siteUrl}`;
-      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(textToShare)}`;
-      window.open(whatsappUrl, '_blank');
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(textToShare)}`, '_blank');
       closeSharePopup();
-    }
-
-    function randomQuote() {
-      const random = quotes[Math.floor(Math.random() * quotes.length)];
-      copyQuote(random.text);
-      showToast(`🎲 র্যান্ডম ক্যাপশন কপি করা হয়েছে!`);
     }
 
     document.getElementById('searchInput').addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
-      const filtered = quotes.filter(q => q.text.toLowerCase().includes(term) || q.author.toLowerCase().includes(term));
-      renderQuotes(filtered);
+      renderQuotes(quotes.filter(q => q.text.toLowerCase().includes(term) || q.author.toLowerCase().includes(term)));
     });
 
     // --- ব্যাকগ্রাউন্ড লাভ অ্যানিমেশন (Canvas Engine) ---
     const canvas = document.getElementById('bgCanvas'); const ctx = canvas.getContext('2d');
-    let particlesArray = []; const numberOfParticles = 30;
+    let particlesArray = []; const numberOfParticles = 25;
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     window.addEventListener('resize', resizeCanvas); resizeCanvas();
 
@@ -251,9 +359,9 @@
       constructor() { this.reset(); this.y = Math.random() * canvas.height; }
       reset() {
         this.x = Math.random() * canvas.width; this.y = canvas.height + 20;
-        this.size = Math.random() * 6 + 4; this.speedY = -(Math.random() * 0.6 + 0.3);
-        this.speedX = Math.sin(Math.random() * 2) * 0.2; this.opacity = Math.random() * 0.4 + 0.1;
-        this.hue = Math.random() > 0.5 ? 280 : 340;
+        this.size = Math.random() * 5 + 3; this.speedY = -(Math.random() * 0.5 + 0.2);
+        this.speedX = Math.sin(Math.random() * 2) * 0.15; this.opacity = Math.random() * 0.3 + 0.1;
+        this.hue = Math.random() > 0.5 ? 285 : 345;
       }
       update() { this.y += this.speedY; this.x += this.speedX; if (this.y < -20) this.reset(); }
       draw() {
@@ -274,14 +382,10 @@
     }
 
     window.onload = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const catParam = urlParams.get('category');
-      if (catParam && document.getElementById(`btn-${catParam}`)) {
-        filterCategory(catParam);
-      } else {
-        filterCategory('all');
-      }
-      initParticles(); animateParticles();
+      initDatabase();
+      filterCategory('all');
+      initParticles(); 
+      animateParticles();
     };
   </script>
 </body>
