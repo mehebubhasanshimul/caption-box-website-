@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caption Box - উক্তি সংগ্রহ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
+                  url('https://i.pinimg.com/originals/79/a3/84/79a384c3c449ad01b0e57e790807b2c0.gif') center/cover fixed;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .main-content {
+      padding-bottom: 180px; /* ফুটারের জন্য জায়গা */
+    }
+    .quote-card {
+      transition: all 0.4s ease;
+    }
+    .quote-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(168 85 247 / 0.3);
+    }
+    .developer-name {
+      background: linear-gradient(90deg, #c026d3, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .scroll-container {
+      max-height: calc(100vh - 70px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #a855f7 #4b5563;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white">
+  <!-- Header -->
+  <header class="sticky top-0 bg-black/90 backdrop-blur-md z-50 border-b border-purple-500/20">
+    <div class="max-w-2xl mx-auto px-4 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center text-3xl shadow-lg">💬</div>
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">Caption Box</h1>
+          <p class="text-purple-300 text-sm">উক্তির ভান্ডার</p>
+        </div>
+      </div>
+      <button onclick="randomQuote()" 
+              class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-6 py-3 rounded-3xl text-sm font-medium flex items-center gap-2 shadow-lg">
+        <i class="fas fa-random"></i> র‍্যান্ডম
+      </button>
+    </div>
+  </header>
+
+  <div class="max-w-2xl mx-auto px-4 main-content scroll-container">
+    <!-- Search -->
+    <div class="relative my-6">
+      <input id="searchInput" type="text" placeholder="উক্তি বা লেখক খুঁজুন..." 
+             class="w-full bg-white/10 border border-white/20 rounded-3xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 text-lg">
+    </div>
+
+    <!-- Categories -->
+    <div class="flex gap-2 overflow-x-auto pb-4 mb-6">
+      <button onclick="filterCategory('all')" class="category-btn active px-6 py-2.5 bg-white/10 hover:bg-purple-600 rounded-3xl text-sm font-medium whitespace-nowrap">সব</button>
+      <button onclick="filterCategory('Rumi')" class="category-btn px-6 py-2.5 bg-white/10 hover:bg-purple-600 rounded-3xl text-sm font-medium whitespace-nowrap">রুমি</button>
+      <button onclick="filterCategory('Ghalib')" class="category-btn px-6 py-2.5 bg-white/10 hover:bg-purple-600 rounded-3xl text-sm font-medium whitespace-nowrap">গালিব</button>
+      <button onclick="filterCategory('Junaid')" class="category-btn px-6 py-2.5 bg-white/10 hover:bg-purple-600 rounded-3xl text-sm font-medium whitespace-nowrap">জুনায়েদ</button>
+      <button onclick="filterCategory('Motivational')" class="category-btn px-6 py-2.5 bg-white/10 hover:bg-purple-600 rounded-3xl text-sm font-medium whitespace-nowrap">মোটিভেশনাল</button>
+    </div>
+
+    <!-- Quotes Container -->
+    <div id="quotesContainer" class="grid grid-cols-1 gap-6 pb-10"></div>
+  </div>
+
+  <!-- Developer Footer -->
+  <footer class="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black to-transparent border-t border-purple-500/30 py-5 z-50">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <p class="text-sm text-gray-400 mb-2">ডেভেলপার</p>
+      <p class="developer-name text-2xl font-bold mb-3">MEHEBUB HASAN SHIMUL</p>
+      
+      <div class="flex justify-center gap-8 text-3xl mb-3">
+        <a href="tel:01636070755" class="text-green-400 hover:scale-110 transition-transform"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/8801636070755" target="_blank" class="text-green-400 hover:scale-110 transition-transform"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/" target="_blank" class="text-sky-400 hover:scale-110 transition-transform"><i class="fab fa-telegram"></i></a>
+        <a href="mailto:shimulprinters82@gmail.com" class="text-red-400 hover:scale-110 transition-transform"><i class="fas fa-envelope"></i></a>
+      </div>
+      
+      <p class="text-xs text-gray-500">Open Source • Caption Box</p>
+    </div>
+  </footer>
+
+  <script>
+    const quotes = [
+      { text: "তোমার কাজ প্রেম খুঁজে বেড়ানো নয়, বরং নিজের ভিতরের সেই বাধাগুলো খুঁজে বের করা যা প্রেমের বিরুদ্ধে তৈরি করেছো।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
+      { text: "তুমি সমুদ্রের এক ফোঁটা নও, তুমি সমুদ্রই এক ফোঁটায়।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
+      { text: "তোমার কণ্ঠস্বর নয়, তোমার কথা উঁচু করো। বৃষ্টিই ফুল ফোটায়, বজ্রপাত নয়।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
+      { text: "ক্ষতস্থানই সেই জায়গা যেখান দিয়ে আলো তোমার ভিতরে প্রবেশ করে।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
+      { text: "মানুষ হওয়া সহজ, মানবিক হওয়া খুব কঠিন।", author: "মির্জা গালিব", category: "Ghalib" },
+      { text: "প্রেম জীবন ও মৃত্যুর মধ্যে কোনো পার্থক্য জানে না।", author: "মির্জা গালিব", category: "Ghalib" },
+      { text: "নিজের টাকা দিয়ে মানুষকে সাহায্য করাই নফসের অন্যতম শ্রেষ্ঠ তাজকিয়া।", author: "জুনায়েদ জামশেদ", category: "Junaid" },
+      { text: "ধৈর্য সুন্দর ফল দেয়, তবে তার স্বাদ মিষ্টি।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
+      { text: "যে ব্যক্তি নিজেকে চেনে, সে তার রবকেও চিনতে পারে।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
+      // আরও উক্তি যোগ করতে চাইলে বলো, আমি ২০০+ করে দিতে পারি
+    ];
+
+    function renderQuotes(filteredQuotes) {
+      const container = document.getElementById('quotesContainer');
+      container.innerHTML = '';
+      
+      if (filteredQuotes.length === 0) {
+        container.innerHTML = `<p class="text-center text-gray-400 py-12 text-lg">কোনো উক্তি পাওয়া যায়নি 😔</p>`;
+        return;
+      }
+
+      filteredQuotes.forEach(quote => {
+        const card = document.createElement('div');
+        card.className = 'quote-card bg-white/10 backdrop-blur-lg border border-white/10 rounded-3xl p-7';
+        card.innerHTML = `
+          <p class="text-[17px] leading-relaxed italic mb-5">"${quote.text}"</p>
+          <div class="flex justify-between items-center">
+            <p class="text-purple-300 font-medium">- ${quote.author}</p>
+            <button onclick="copyQuote('${quote.text.replace(/'/g, "\\'")}')" 
+                    class="text-2xl text-white/60 hover:text-white transition-colors">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active', 'bg-purple-600', 'text-white'));
+      const btn = Array.from(document.querySelectorAll('.category-btn')).find(b => b.getAttribute('onclick').includes(`'${cat}'`));
+      if (btn) btn.classList.add('active', 'bg-purple-600', 'text-white');
+
+      if (cat === 'all') {
+        renderQuotes(quotes);
+      } else {
+        renderQuotes(quotes.filter(q => q.category === cat));
+      }
+    }
+
+    function copyQuote(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const msg = document.createElement('div');
+        msg.textContent = '✅ কপি হয়েছে!';
+        msg.style.cssText = 'position:fixed; bottom:100px; left:50%; transform:translateX(-50%); background:#a855f7; color:white; padding:12px 24px; border-radius:9999px; z-index:100;';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 2000);
+      });
+    }
+
+    function randomQuote() {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      alert(`"${random.text}"\n\n— ${random.author}`);
+    }
+
+    // Search
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      const filtered = quotes.filter(q => 
+        q.text.toLowerCase().includes(term) || q.author.toLowerCase().includes(term)
+      );
+      renderQuotes(filtered);
+    });
+
+    // Load
+    window.onload = () => {
+      renderQuotes(quotes);
+    };
+  </script>
+</body>
+</html>
