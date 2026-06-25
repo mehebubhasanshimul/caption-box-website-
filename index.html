@@ -30,13 +30,11 @@
 </head>
 <body class="min-h-screen text-white">
 
-  <!-- Background Music Player Element -->
   <audio id="bgMusic" src="Itna Na Mujhse Tu Pyar Badha _ O Neel Gagan Ke Dee(M4A_128K).m4a" loop></audio>
 
   <canvas id="bgCanvas"></canvas>
 
   <div class="app-container min-h-screen flex flex-col">
-    <!-- Header -->
     <header class="sticky top-0 bg-black/80 backdrop-blur-md z-50 border-b border-purple-500/20">
       <div class="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
         <div class="flex items-center gap-3">
@@ -57,9 +55,7 @@
       </div>
     </header>
 
-    <!-- Main Content -->
     <div id="scrollContent" class="max-w-2xl w-full mx-auto px-4 main-content flex-grow scroll-container mt-4">
-      <!-- Search Box -->
       <div class="relative mb-6">
         <span class="absolute inset-y-0 left-5 flex items-center text-gray-400">
           <i class="fas fa-search"></i>
@@ -68,17 +64,14 @@
                class="w-full bg-white/5 border border-white/10 rounded-3xl pl-12 pr-6 py-3.5 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 text-base transition-all">
       </div>
 
-      <!-- Categories Tabs -->
       <div class="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
         <button onclick="filterCategory('all')" id="btn-all" class="category-btn px-5 py-2 bg-purple-600 text-white rounded-3xl text-xs font-medium whitespace-nowrap transition-all">সব ক্যাপশন</button>
         <button onclick="filterCategory('favorites')" id="btn-favorites" class="category-btn px-5 py-2 bg-white/5 text-pink-400 hover:bg-pink-600/20 rounded-3xl text-xs font-medium whitespace-nowrap transition-all"><i class="fas fa-heart mr-1"></i> ফেভারিটস</button>
         <button onclick="filterCategory('sad-bangla-caption')" id="btn-sad-bangla-caption" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">Sad Caption 😭</button>
         <button onclick="filterCategory('attitude-status-bangla')" id="btn-attitude-status-bangla" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">Attitude Status 😎</button>
         <button onclick="filterCategory('love-caption-bf')" id="btn-love-caption-bf" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">Love Caption ❤️</button>
-        <button onclick="filterCategory('Rumi')" id="btn-Rumi" class="category-btn px-5 py-2 bg-white/5 hover:bg-purple-600 rounded-3xl text-xs font-medium whitespace-nowrap transition-all">রুমি উক্তি ✍️</button>
       </div>
 
-      <!-- Dynamic Random Quote Display Card -->
       <div id="randomQuoteBox" class="hidden mb-6 bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-purple-500/30 rounded-3xl p-5 relative overflow-hidden">
         <div class="absolute top-3 right-4 text-xs font-bold text-purple-400 uppercase tracking-widest">🎲 র‍্যান্ডম ক্যাপশন</div>
         <p id="randomQuoteText" class="text-base text-gray-100 italic mt-2 mb-3">""</p>
@@ -91,7 +84,6 @@
       <div id="quotesContainer" class="grid grid-cols-1 gap-5 pb-12"></div>
     </div>
 
-    <!-- User Content Submission Modal -->
     <div id="submitModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
       <div class="bg-[#140b24] border border-purple-500/30 rounded-3xl max-w-md w-full p-6 shadow-2xl">
         <h3 class="text-xl font-bold text-purple-300 mb-2">✍️ আপনার ক্যাপশন যোগ করুন</h3>
@@ -122,7 +114,6 @@
       </div>
     </div>
 
-    <!-- Developer Footer -->
     <footer class="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/95 to-transparent border-t border-purple-500/20 py-4 z-50 backdrop-blur-sm">
       <div class="max-w-2xl mx-auto px-4 text-center">
         <p class="text-xs text-gray-400 mb-1">ডেভেলপার</p>
@@ -138,7 +129,6 @@
     </footer>
   </div>
 
-  <!-- ভাইরাল শেয়ারিং পপআপ -->
   <div id="sharePopup" class="custom-popup text-center">
     <h3 class="text-lg font-bold text-purple-300 mb-2">🎉 ক্যাপশন কপি হয়েছে!</h3>
     <p class="text-xs text-gray-300 mb-4">আপনার বন্ধুদের সরাসরি WhatsApp-এ পাঠাতে চান?</p>
@@ -155,19 +145,57 @@
   <div id="customToast" class="custom-toast"></div>
 
   <script>
+    // আপনার দেওয়া সমস্ত নতুন ক্যাপশন নিখুঁত ক্যাটাগরিতে অ্যাড করা হয়েছে
     const defaultQuotes = [
-      { id: 1, text: "মানুষ হওয়া সহজ, কিন্তু মানবিক হওয়া অনেক কঠিন।", author: "মির্জা গালিব", category: "Ghalib" },
-      { id: 2, text: "হাজারো এমন আকাঙ্ক্ষা যে প্রতিটি আকাঙ্ক্ষায় দম বেরিয়ে যায়, অনেক পূরণ হয়েছে আমার স্বপ্ন কিন্তু তাও কম মনে হয়।", author: "মির্জা গালিব", category: "Ghalib" },
-      { text: "প্রেম জীবন ও মৃত্যুর মধ্যে কোনো পার্থক্য বোঝে না, যাকে দেখে বেঁচে থাকা যায়, তাকে দেখেই প্রাণও দেওয়া যায়।", author: "মির্জা গালিব", category: "love-caption-bf" },
-      { text: "যখন কোনো আশা অবশিষ্ট থাকে না, যখন কোনো পথ চোখে পড়ে না, তখনই তো ভেতরের আসল মানুষটার জন্ম হয়।", author: "মির্জা গালিব", category: "attitude-status-bangla" },
-      { text: "দুঃখের তীব্রতা যখন সীমা ছাড়িয়ে যায়, তখন তা নিজেই নিজের ওষুধ হয়ে দাঁড়ায়।", author: "মির্জা গালিব", category: "sad-bangla-caption" },
-      { text: "তোমার কাজ প্রেম খুঁজে বেড়ানো নয়, বরং নিজের ভেতরের সেই সমস্ত বাধাগুলোকে খুঁজে বের করা যা তুমি প্রেমের বিরুদ্ধে তৈরি করেছ।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
-      { text: "তুমি সমুদ্রের এক ফোঁটা জল নও, তুমি এক ফোঁটা জলে লুকিয়ে থাকা এক আস্ত মহাসমুদ্র।", author: "জালালুদ্দিন রুমি", category: "love-caption-bf" },
-      { text: "ক্ষতস্থানই সেই পবিত্র জায়গা, যেখান দিয়ে আলো তোমার অন্তরে প্রবেশ করার সুযোগ পায়।", author: "জালালুদ্দিন রুমি", category: "sad-bangla-caption" },
-      { text: "তোমার কণ্ঠস্বর উঁচো করো না, বরং তোমার যুক্তি ও কথা শক্তিশালী করো। মনে রেখো, বজ্রপাতে নয়, বৃষ্টিতেই সুন্দর ফুল ফোটে।", author: "জালালুদ্দিন রুমি", category: "Rumi" },
-      { text: "পৃথিবীতে যে মানুষটা কোনদিন তোমাকে ছেড়ে যাবে না, তাকে দেখতে চাইলে একবার আয়নার সামনে দাঁড়াও।", author: "জুনায়েদ ইভান", category: "attitude-status-bangla" },
-      { text: "অভিমানী এই শহরে তোমার আমার গল্পটা খুব চেনা, তুমি বদলে গেছো সস্তা অজুহাতে আর আমি রয়ে গেছি তোমার দেওয়া একলা রাতে।", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" },
-      { text: "কিছু কথা না बলাই থেকে যাক, কিছু ক্ষত না শুকালেও ক্ষতি নেই। ধুলো জমা ডায়রিটা না হয় আজ বন্ধই থাক।", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" }
+      // === SAD CAPTION 😭 ===
+      { text: "তোমার অবহেলা আমাকে শিখিয়েছে—নিঃশব্দে দূরে চলে যাওয়াই হলো সবচেয়ে বড় শাস্তি!", author: "ডায়েরির পাতা", category: "sad-bangla-caption" },
+      { text: "প্রয়োজনে মানুষ কাছে আসে, আর প্রয়োজন ফুরালেই দূরত্ব হয়ে যায় পরিচয়ের শেষ সীমানা। 🕳️🚶‍♂️", author: "অনুভূতি", category: "sad-bangla-caption" },
+      { text: "ভালো থাকার অভিনয়ে ক্লান্ত আমি, তবু চালিয়ে যেতে হয়। 🥀🤭", author: "একাকীত্ব", category: "sad-bangla-caption" },
+      { text: "সবাই ছবির পেছনের গল্পটা বোঝে না… কিন্তু হাসিটা দেখে ভাবে সব ঠিক আছে।", author: "ডায়েরির পাতা", category: "sad-bangla-caption" },
+      { text: "যাকে সবচেয়ে আপন ভাবো, একদিন তাকেই প্রমাণ করতে হয়—তুমি তার কেমন ছিলে। 😓", author: "বাস্তবতা", category: "sad-bangla-caption" },
+      { text: "সব গল্পের শেষ নেই, কিছু গল্প থেমে যায় মাঝপথে। ✘✘", author: "Ashes", category: "sad-bangla-caption" },
+      { text: "অতিরিক্ত আবেগ আর অতিরিক্ত বিশ্বাস, এই দুইটাই মানুষকে তিলে تিলে শেষ করে দেয়। 🧠💔", author: "বাস্তবতা", category: "sad-bangla-caption" },
+      { text: "প্রয়োজন ফুরিয়ে গেলে, খোঁজ নেওয়ার মানুষটাও হারিয়ে যায়। 📉🥀", author: "অভিমান", category: "sad-bangla-caption" },
+      { text: "অভিযোগ করে কোনো লাভ নেই, কারণ চোখের জল মুছিয়ে দেওয়ার সময় কারোর নেই। 😶‍茧🕰️", author: "কষ্টের নীল খাম", category: "sad-bangla-caption" },
+      { text: "সময় অনেক কিছু শিখিয়ে দেয়, বিশেষ করে এটা যে—সবাই আপন হয় না। ⏳🥀", author: "মির্জা গালিব", category: "sad-bangla-caption" },
+      { text: "কাউকে খুব বেশি গুরুত্ব দিয়ে ফেললে, নিজের গুরুত্বটাই তার কাছে কমে যায়। 🥀⚖️", author: "অভিমান", category: "sad-bangla-caption" },
+      { text: "মানুষ দূরে গেলে কষ্ট হয় না, কষ্ট হয় যখন বদলে যেতে দেখি। 🌙", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" },
+      { text: "কিছু সম্পর্ক শেষ হয় না, শুধু কথা বলা বন্ধ হয়ে যায়। 🥀", author: "ডায়েরির পাতা", category: "sad-bangla-caption" },
+      { text: "মনের ভেতর হাজার ঝড় चलলেও, বাইরে থেকে হাসতে পারাটাই সবচেয়ে বড় অভিনয়। 🌑", author: "বাস্তবতা", category: "sad-bangla-caption" },
+      { text: "জীবনের সবচেয়ে কঠিন বাস্তবতা হলো, প্রিয় মানুষগুলোও একসময় পর হয়ে যায়। 🍁", author: "কষ্টের নীল খাম", category: "sad-bangla-caption" },
+      { text: "মানুষ তখনই কাঁদে, যখন নিজের অনুভূতিগুলো বোঝানোর ভাষা হারিয়ে ফেলে। 🤐", author: "একাকীত্ব", category: "sad-bangla-caption" },
+      { text: "যত বেশি আপন ভাবো, তত বেশি কষ্ট পাওয়ার সম্ভাবনা বেড়ে যায়। 🌊", author: "মির্জা গালিব", category: "sad-bangla-caption" },
+      { text: "সবাই ভালো থাকার অভিনয় করে, কারণ নিজের কষ্টগুলো কেউ শুনতে চায় না। 🎭", author: "বাস্তবতা", category: "sad-bangla-caption" },
+      { text: "দিনশেষে টাকার অভাবের চেয়ে, মানসিক শান্তির অভাবটাই মানুষকে বেশি ক্লান্ত করে। 🕰️", author: "ডায়েরির পাতা", category: "sad-bangla-caption" },
+      { text: "আমরা যাদের সবচেয়ে বেশি গুরুত্ব দেই, একসময় তারাই সবচেয়ে বেশি অবহেলা করে। 💔", author: "জুনায়েদ ইভান", category: "sad-bangla-caption" },
+      { text: "কিছু মানুষকে ভুলতে চাই না, আবার মনে রাখাটাও অসম্ভব কষ্টের। 🥀", author: "অনুভূতি", category: "sad-bangla-caption" },
+      { text: "সবাই পাশে থাকার কথা বলে, কিন্তু খারাপ সময় এলে মানুষ অজুহাত খুঁজে নেয়। 🌙", author: "একাকীত্ব", category: "sad-bangla-caption" },
+
+      // === ATTITUDE STATUS 😎 ===
+      { text: "সব বুঝেও না বোঝার অভিনয়টাই শান্তি দেয়। 🎭🕊️╳ ╳", author: "শ্যাডো জোকার", category: "attitude-status-bangla" },
+      { text: "সব ঠিক না থাকলেও নিজের সাথে ঠিক থাকাটা সবচেয়ে জরুরি।", author: "রয়েল ডায়েরি", category: "attitude-status-bangla" },
+      { text: "আমি Perfect না, কিন্তু Fake ও না। ✦──༊✾", author: "অ্যাটিটিউড কিং", category: "attitude-status-bangla" },
+      { text: "জীবন আমাকে শব্দ কম, অর্থ বেশি হতে শিখিয়েছে। 😌", author: "জালালুদ্দিন রুমি", category: "attitude-status-bangla" },
+      { text: "জীবনের বাঁকে অনেক মানুষ আসবে, কিন্তু আয়নার সামনের মানুষটাই আসল সঙ্গী। 🪞🖤", author: "শ্যাডো জোকার", category: "attitude-status-bangla" },
+      { text: "ভিড়ের মাঝে নিজেকে হারাবেন না, নিজের আলাদা পরিচয় গড়ুন। 🔥💎", author: "রয়েল ডায়েরি", category: "attitude-status-bangla" },
+      { text: "কিছু হারানো দরকার ছিল, না হলে তুমি এখনও আগের জায়গাতেই থাকতে। 🚪⏳", author: "বাস্তবতা", category: "attitude-status-bangla" },
+      { text: "ভুল মানুষদের ধন্যবাদ, ওদের কারণেই আমি নিজেকে চিনেছি। 🌫️🔥", author: "মির্জা গালিব", category: "attitude-status-bangla" },
+      { text: "নিজেকে কখনো কম মনে করো না, সময় তোমাকেও একদিন প্রমাণ দেবে। 🎯", author: "রয়েল ডায়েরি", category: "attitude-status-bangla" },
+      { text: "যোগ্যতা অর্জন করুন, সম্মান নিজে থেকেই আসবে। 🎓✨", author: "বাস্তবতা", category: "attitude-status-bangla" },
+      { text: "স্বার্থ ফুরিয়ে গেলে মানুষ, কথা বলাও কমিয়ে দেয়। 🎭🚪", author: "অ্যাটিটিউড কিং", category: "attitude-status-bangla" },
+      { text: "অতিরিক্ত ভালো হওয়াটাও ভুল, এই পৃথিবী সরলতাকে সুযোগ ভাবে। 🍂⚖️", author: "মির্জা গালিব", category: "attitude-status-bangla" },
+      { text: "সবাই সফল মানুষটাকে দেখে, কিন্তু তার পেছনের নির্ঘুম রাতগুলো দেখে না। ⛓️", author: "বাস্তবতা", category: "attitude-status-bangla" },
+      { text: "জীবেনে ভুল মানুষ আসাটা দরকার, না হলে মানুষ চিনতে শেখা যায় না। ✨", author: "জালালুদ্দিন রুমি", category: "attitude-status-bangla" },
+
+      // === LOVE CAPTION ❤️ ===
+      { text: "আমি এমনিতেই cute, শুধু কপালে প্রেম নাই! Romance সব হারালেও আল্লাহ আছেন। ☝️🖤😍", author: "কিউট ডায়েরি", category: "love-caption-bf" },
+      { text: "নিজেকে ভালোবাসাটাও একটা relationship! ❤️", author: "জালালুদ্দিন রুমি", category: "love-caption-bf" },
+      { text: "সব ইচ্ছা পূরণ হয় না, কিছু ইচ্ছাই মানুষকে মানুষ করে তোলে।", author: "ডায়েরির পাতা", category: "love-caption-bf" },
+      { text: "জীবনটা সবসময় প্ল্যান মাফিক চলে না, আর এটাই বোধহয় এর সবচেয়ে সুন্দর দিক।", author: "অনুভূতি", category: "love-caption-bf" },
+      { text: "আল্লাহ জানেন—এইটুকুই যথেষ্ট। 🤍☝️", author: "সুফি ডায়েরি", category: "love-caption-bf" },
+      { text: "মাঝে মাঝে মনে হয়, সাধারণ মুহূর্তগুলোই আসলে জীবনের সেরা স্মৃতি হয়ে থাকে।", author: "ভালোবাসার গল্প", category: "love-caption-bf" },
+      { text: "জীবন এক চিমটি লবণের মতো, সঠিক ব্যবহারে সব সুন্দর। 🌊🧂", author: "জালালুদ্দিন রুমি", category: "love-caption-bf" },
+      { text: "ছোটবেলায় বড় হওয়ার শখ ছিল, বড় হয়ে বুঝলাম শৈশবটাই সবচেয়ে সুন্দর ছিল। 🌿", author: "ভালোবাসার গল্প", category: "love-caption-bf" }
     ];
 
     let quotes = [];
@@ -188,7 +216,6 @@
       }
     }
 
-    // স্ক্রোল অথবা টাচ ইভেন্টে গান প্লে করার লজিক
     scrollContainer.addEventListener('scroll', playMusic, { once: true });
     window.addEventListener('click', playMusic, { once: true });
     window.addEventListener('touchstart', playMusic, { once: true });
@@ -204,7 +231,7 @@
         if(!stats[q.id]) {
           stats[q.id] = { views: Math.floor(Math.random() * 150) + 50, shares: Math.floor(Math.random() * 30) + 5 };
         }
-        stats[q.id].views += 1; // পেজ লোড বা রিফ্রেশে ভিউ কাউন্ট আপডেট
+        stats[q.id].views += 1;
       });
       localStorage.setItem('caption_stats', JSON.stringify(stats));
     }
@@ -230,7 +257,6 @@
       setTimeout(() => toast.classList.remove('show'), 2000);
     }
 
-    // ফেভারিট/লাইক সেভ অপশন
     function toggleFavorite(id) {
       let favorites = JSON.parse(localStorage.getItem('user_favorites')) || [];
       const index = favorites.indexOf(id);
@@ -252,7 +278,6 @@
       if(currentTab === "favorites") filterCategory('favorites');
     }
 
-    // র‍্যান্ডম ক্যাপশন বাটন লজিক
     function triggerRandomQuote() {
       const random = quotes[Math.floor(Math.random() * quotes.length)];
       const box = document.getElementById('randomQuoteBox');
@@ -270,7 +295,6 @@
       box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // ক্যাপশন সাবমিট ফর্ম কন্ট্রোল
     function openSubmitModal() { document.getElementById('submitModal').classList.remove('hidden'); }
     function closeSubmitModal() { document.getElementById('submitModal').classList.add('hidden'); }
     
@@ -353,7 +377,7 @@
     function copyQuote(text, id) {
       navigator.clipboard.writeText(text).then(() => {
         lastCopiedText = text;
-        incrementShare(id); // কপি করলেই শেয়ার কাউন্ট বাড়বে
+        incrementShare(id);
         showToast('✅ ক্লিপবোর্ডে কপি হয়েছে!');
         document.getElementById('sharePopup').classList.add('show');
       });
